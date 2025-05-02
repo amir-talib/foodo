@@ -40,7 +40,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   basePath: '/foodo',
-  assetPrefix: '/foodo/',
+  assetPrefix: '/foodo',
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
