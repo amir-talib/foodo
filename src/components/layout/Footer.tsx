@@ -13,8 +13,8 @@ const navigation = {
     { name: "Enterprise", href: "/pricing/enterprise" },
   ],
   resources: [
-    { name: "Success Stories", href: "/resources/success-stories" },
     { name: "Blog", href: "/blog" },
+    { name: "Our Team", href: "/our-team" },
     { name: "Help Center", href: "/help" },
   ],
   company: [

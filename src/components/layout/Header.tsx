@@ -14,10 +14,9 @@ import { LuMenu, LuPhone, LuChevronDown } from "react-icons/lu";
 
 const navigation = {
   resources: [
-    { name: "Success Stories", href: "/resources/success-stories" },
     { name: "Blog", href: "/blog" },
+    { name: "Our Team", href: "/our-team" },
     { name: "Help Center", href: "/help" },
-    { name: "Partners", href: "/partners" },
   ],
   company: [
     { name: "About Us", href: "/about" },
