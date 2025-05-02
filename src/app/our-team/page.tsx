@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { LuRocket, LuCode, LuCpu, LuSettings } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const team = [
   {
@@ -107,28 +108,7 @@ export default function TeamPage() {
           </motion.div>
         </div>
         
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full"
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.2, 0.5, 0.2],
-              }}
-              transition={{
-                duration: 2 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
+        <AnimatedBackground />
       </section>
 
       {/* Team Grid */}

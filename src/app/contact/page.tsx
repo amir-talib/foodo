@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { LuPhone, LuMail, LuMapPin, LuClock, LuSend, LuCheck } from "react-icons/lu";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -52,28 +53,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
         
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-white/20 rounded-full"
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.2, 0.5, 0.2],
-              }}
-              transition={{
-                duration: 2 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
+        <AnimatedBackground />
       </section>
 
       {/* Contact Grid */}
