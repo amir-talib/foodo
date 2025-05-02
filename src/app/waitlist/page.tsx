@@ -74,22 +74,29 @@ export default function WaitlistPage() {
     e.preventDefault();
     setIsLoading(true);
 
+    const submitData = {
+      timestamp: new Date().toISOString(),
+      ...formData
+    };
+
+    console.log('Submitting data:', submitData);
+
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzYJvl5jJqp_mjrmEe_cOyOXumVdHbzxziaZK1CvQ7scV_jZGLTJ2Mzod2yIn_ksxjh/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzQUZOuoqQxP7BPs9xAf3Kzn3QoujodYcX7Q0kp5V3Rm1W5B7BDCzLSJqdhKyfvUCNY/exec', {
         method: 'POST',
         mode: 'no-cors', // Required for Google Apps Script
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          timestamp: new Date().toISOString(),
-          ...formData
-        }),
+        body: JSON.stringify(submitData),
       });
 
-      // Since no-cors mode doesn't give us response details,
-      // we'll assume success if the request doesn't throw an error
+      console.log('Response received:', response);
+
+      // Since we're using no-cors, we won't get response details
+      // but we can check if the request completed
       setIsSubmitted(true);
+      
       // Reset form
       setFormData({
         restaurantName: "",
@@ -98,9 +105,10 @@ export default function WaitlistPage() {
         phone: "",
         location: "",
       });
+
     } catch (error) {
       console.error('Submission error:', error);
-      alert('Failed to join waitlist. Please try again.');
+      alert('Failed to join waitlist. Please try again or contact support if the issue persists.');
     } finally {
       setIsLoading(false);
     }
