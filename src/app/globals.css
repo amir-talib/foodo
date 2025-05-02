@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: 'Deacon';
-  src: url('/foodo/fonts/Deacon-Bold.woff2') format('woff2');
+  src: url('/fonts/Deacon-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: 'Deacon';
-  src: url('/foodo/fonts/Deacon-Medium.woff2') format('woff2');
+  src: url('/fonts/Deacon-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: 'Deacon';
-  src: url('/foodo/fonts/Deacon-Black.woff2') format('woff2');
+  src: url('/fonts/Deacon-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: 'Questrial';
-  src: url('/foodo/fonts/Questrial-Regular.ttf') format('truetype');
+  src: url('/fonts/Questrial-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

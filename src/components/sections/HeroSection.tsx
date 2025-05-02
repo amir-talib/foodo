@@ -55,13 +55,13 @@ export function HeroSection() {
               {/* Main dashboard image */}
               <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
                 <Image
-                  src="/foodo/dashboard-preview.png"
+                  src="/dashboard-preview.png"
                   alt="Foodo Restaurant Dashboard Preview"
                   width={800}
                   height={500}
                   priority
                   className="w-full h-auto rounded-lg"
-                />
+              />
               </div>
             </div>
           </div>
