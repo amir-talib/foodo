@@ -75,16 +75,25 @@ export default function WaitlistPage() {
     setIsLoading(true);
 
     const submitData = {
-      timestamp: new Date().toISOString(),
-      ...formData
+      restaurantName: formData.restaurantName.trim(),
+      contactName: formData.contactName.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      location: formData.location.trim()
     };
 
     console.log('Submitting data:', submitData);
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbzQUZOuoqQxP7BPs9xAf3Kzn3QoujodYcX7Q0kp5V3Rm1W5B7BDCzLSJqdhKyfvUCNY/exec', {
+      // First, make a GET request to wake up the Apps Script
+      await fetch('https://script.google.com/macros/s/AKfycbxSPnp3KnyzDQ9LkXCzXPsE_A57UeAm7f_HlHJi1mvRCLltyw8hZobSffwBtElbBcT8/exec', {
+        method: 'GET',
+      });
+
+      // Then make the actual POST request
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxSPnp3KnyzDQ9LkXCzXPsE_A57UeAm7f_HlHJi1mvRCLltyw8hZobSffwBtElbBcT8/exec', {
         method: 'POST',
-        mode: 'no-cors', // Required for Google Apps Script
+        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -92,9 +101,8 @@ export default function WaitlistPage() {
       });
 
       console.log('Response received:', response);
-
-      // Since we're using no-cors, we won't get response details
-      // but we can check if the request completed
+      
+      // Since we're using no-cors, assume success if no error is thrown
       setIsSubmitted(true);
       
       // Reset form
