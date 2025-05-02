@@ -7,13 +7,13 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "foodo - Restaurant Technology Platform",
-  description: "Powering Nigerian restaurants to make and save more money with commission-free online ordering, delivery, and marketing automation.",
+  title: "Foodo | Grow Your Restaurant. Commission-Free Ordering, Delivery & Marketing",
+  description: "Foodo empowers Nigerian restaurants to grow sales, streamline delivery, and automate marketing—all with zero commission fees. Join the future of restaurant tech!",
   openGraph: {
-    title: "foodo - Restaurant Technology Platform",
-    description: "Powering Nigerian restaurants to make and save more money with commission-free online ordering, delivery, and marketing automation.",
+    title: "Foodo | Grow Your Restaurant. Commission-Free Ordering, Delivery & Marketing",
+    description: "Foodo empowers Nigerian restaurants to grow sales, streamline delivery, and automate marketing—all with zero commission fees. Join the future of restaurant tech!",
     url: "https://foodo.ng/",
-    siteName: "foodo",
+    siteName: "Foodo",
     images: [
       {
         url: "/dashboard-preview.png",
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@foodo_ng",
-    title: "foodo - Restaurant Technology Platform",
-    description: "Powering Nigerian restaurants to make and save more money with commission-free online ordering, delivery, and marketing automation.",
+    title: "Foodo | Grow Your Restaurant. Commission-Free Ordering, Delivery & Marketing",
+    description: "Foodo empowers Nigerian restaurants to grow sales, streamline delivery, and automate marketing—all with zero commission fees. Join the future of restaurant tech!",
     images: ["/dashboard-preview.png"],
   },
   metadataBase: new URL("https://foodo.ng"),
