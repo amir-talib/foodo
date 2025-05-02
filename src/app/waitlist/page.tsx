@@ -86,12 +86,16 @@ export default function WaitlistPage() {
 
     try {
       // First, make a GET request to wake up the Apps Script
-      await fetch('https://script.google.com/macros/s/AKfycbxSPnp3KnyzDQ9LkXCzXPsE_A57UeAm7f_HlHJi1mvRCLltyw8hZobSffwBtElbBcT8/exec', {
+      const wakeResponse = await fetch('https://script.google.com/macros/s/AKfycbxMp0igAdNhhXbjNMArxYxu_jvw6-uGsXJbJCLhFds1R7KPopEQuGHpX2m9yXgmXd143g/exec', {
         method: 'GET',
       });
 
+      if (!wakeResponse.ok) {
+        throw new Error('Failed to wake up the server');
+      }
+
       // Then make the actual POST request
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxSPnp3KnyzDQ9LkXCzXPsE_A57UeAm7f_HlHJi1mvRCLltyw8hZobSffwBtElbBcT8/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxMp0igAdNhhXbjNMArxYxu_jvw6-uGsXJbJCLhFds1R7KPopEQuGHpX2m9yXgmXd143g/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
