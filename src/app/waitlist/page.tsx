@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { LuCheck, LuClock, LuShield } from "react-icons/lu";
 import { motion } from "framer-motion";
+import { ReCaptcha } from "@/components/ui/recaptcha";
 
 const benefits = [
   {
@@ -47,6 +48,7 @@ interface FormData {
 export default function WaitlistPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState<FormData>({
     restaurantName: "",
     contactName: "",
@@ -70,8 +72,22 @@ export default function WaitlistPage() {
     }));
   };
 
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+  };
+
+  const handleCaptchaExpired = () => {
+    setCaptchaToken(null);
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!captchaToken) {
+      alert('Please complete the reCAPTCHA verification');
+      return;
+    }
+
     setIsLoading(true);
 
     const submitData = {
@@ -79,14 +95,15 @@ export default function WaitlistPage() {
       contactName: formData.contactName.trim(),
       email: formData.email.trim(),
       phone: formData.phone.trim(),
-      location: formData.location.trim()
+      location: formData.location.trim(),
+      captchaToken: captchaToken
     };
 
     console.log('Submitting data:', submitData);
 
     try {
       // First, make a GET request to wake up the Apps Script
-      const wakeResponse = await fetch('https://script.google.com/macros/s/AKfycbxMp0igAdNhhXbjNMArxYxu_jvw6-uGsXJbJCLhFds1R7KPopEQuGHpX2m9yXgmXd143g/exec', {
+      const wakeResponse = await fetch('https://script.google.com/macros/s/AKfycbyMfCccZPz3YI1Mzk6lplWLE1CjnYmqWhEbBgjt1_uVn2qOV70Jgz6YC1xrkNzyXDxQ9A/exec', {
         method: 'GET',
       });
 
@@ -95,7 +112,7 @@ export default function WaitlistPage() {
       }
 
       // Then make the actual POST request
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxMp0igAdNhhXbjNMArxYxu_jvw6-uGsXJbJCLhFds1R7KPopEQuGHpX2m9yXgmXd143g/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyMfCccZPz3YI1Mzk6lplWLE1CjnYmqWhEbBgjt1_uVn2qOV70Jgz6YC1xrkNzyXDxQ9A/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -109,7 +126,7 @@ export default function WaitlistPage() {
       // Since we're using no-cors, assume success if no error is thrown
       setIsSubmitted(true);
       
-      // Reset form
+      // Reset form and captcha
       setFormData({
         restaurantName: "",
         contactName: "",
@@ -117,6 +134,7 @@ export default function WaitlistPage() {
         phone: "",
         location: "",
       });
+      setCaptchaToken(null);
 
     } catch (error) {
       console.error('Submission error:', error);
@@ -253,10 +271,17 @@ export default function WaitlistPage() {
                       </div>
                     </div>
 
+                    <div className="space-y-4">
+                      <ReCaptcha
+                        onChange={handleCaptchaChange}
+                        onExpired={handleCaptchaExpired}
+                      />
+                    </div>
+
                     <Button
                       type="submit"
                       className="w-full bg-primary hover:bg-primary/90"
-                      disabled={isLoading}
+                      disabled={isLoading || !captchaToken}
                     >
                       {isLoading ? "Joining..." : "Join Waitlist"}
                     </Button>
