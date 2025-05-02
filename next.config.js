@@ -39,6 +39,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  basePath: '/foodo',
+  assetPrefix: '/foodo/',
 };
 
 module.exports = nextConfig;
