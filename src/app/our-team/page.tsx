@@ -1,217 +1,233 @@
 "use client";
 
-import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
-import { 
-  LuBrain, 
-  LuCode, 
-  LuCpu, 
-  LuSettings2,
-  LuLinkedin,
-  LuMail,
-  LuTwitter
-} from "react-icons/lu";
-import { IconType } from "react-icons";
+import { LuRocket, LuCode, LuCpu, LuSettings } from "react-icons/lu";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const team = [
   {
     name: "Amir Talib",
     role: "Chief Executive Officer",
-    icon: LuBrain,
-    bio: "Visionary leader and entrepreneur passionate about revolutionizing Nigeria's restaurant tech landscape. When not strategizing Foodo's next big move, you'll find Amir exploring Abuja's vibrant food scene for inspiration.",
-    funFact: "Can name over 100 Nigerian dishes by heart",
-    links: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:amir@foodo.ng"
-    }
+    icon: LuRocket,
+    color: "text-blue-500",
+    bgColor: "bg-blue-100",
+    description: "Visionary leader with a passion for transforming the food industry. Amir brings 10+ years of experience in business strategy and digital innovation, driving Foodo's mission to empower Nigerian restaurants.",
+    funFact: "Can cook a mean jollof rice! 🍚",
+    linkedin: "https://linkedin.com/in/amir-talib"
   },
   {
     name: "Walid Yakudima",
     role: "Chief Technology Officer",
-    icon: LuCpu,
-    bio: "Tech wizard extraordinaire who architects Foodo's robust platform. Walid turns complex restaurant problems into elegant digital solutions, ensuring our platform stays ahead of the curve.",
-    funFact: "Once debugged code in his sleep (literally!)",
-    links: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:walid@foodo.ng"
-    }
+    icon: LuCode,
+    color: "text-purple-500",
+    bgColor: "bg-purple-100",
+    description: "Tech wizard with a knack for building scalable solutions. Walid leads our engineering team, ensuring Foodo's platform remains cutting-edge and reliable for our restaurant partners.",
+    funFact: "Built his first website at age 12! 💻",
+    linkedin: "https://linkedin.com/in/walid-yakudima"
   },
   {
     name: "Khalifa IMM",
     role: "Senior Developer",
-    icon: LuCode,
-    bio: "Code craftsman and problem-solver who brings Foodo's features to life. Khalifa's expertise in modern web technologies ensures our platform delivers a seamless experience for restaurants and their customers.",
-    funFact: "Can type 120 words per minute while eating jollof rice",
-    links: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:khalifa@foodo.ng"
-    }
+    icon: LuCpu,
+    color: "text-green-500",
+    bgColor: "bg-green-100",
+    description: "Full-stack expert who turns complex problems into elegant solutions. Khalifa's expertise in modern web technologies helps keep Foodo's platform fast, secure, and user-friendly.",
+    funFact: "Can debug code in his sleep! 🛠️",
+    linkedin: "https://linkedin.com/in/khalifa-imm"
   },
   {
     name: "Sadiq Yakudima",
     role: "Chief Operations Officer",
-    icon: LuSettings2,
-    bio: "Operations mastermind who keeps Foodo running like a well-oiled machine. Sadiq's deep understanding of restaurant operations helps us create solutions that truly work in the real world.",
-    funFact: "Has a secret recipe for the perfect suya spice mix",
-    links: {
-      linkedin: "#",
-      twitter: "#",
-      email: "mailto:sadiq@foodo.ng"
-    }
+    icon: LuSettings,
+    color: "text-orange-500",
+    bgColor: "bg-orange-100",
+    description: "Operations maestro who ensures everything runs smoothly. Sadiq's attention to detail and process optimization helps Foodo deliver exceptional service to our restaurant partners.",
+    funFact: "Can juggle 5 tasks simultaneously! 🤹",
+    linkedin: "https://linkedin.com/in/sadiq-yakudima"
   }
 ];
 
-export default function TeamPage() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
     }
-  };
+  }
+};
 
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
 
-  const socialIcons: Record<string, IconType> = {
-    linkedin: LuLinkedin,
-    twitter: LuTwitter,
-    email: LuMail
-  };
-
+export default function TeamPage() {
   return (
-    <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
-        <div className="container py-20">
-          {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-primary text-white py-20">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-16"
+            className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Meet the Foodo Team
+              Meet the Team Behind Foodo
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We're a passionate team of tech enthusiasts and food lovers, working to revolutionize 
-              restaurant operations in Nigeria.
+            <p className="text-xl text-white/90 mb-8">
+              We're a passionate team of food lovers and tech innovators working together to transform how Nigerian restaurants do business.
             </p>
+            <div className="flex justify-center gap-4">
+              <Button
+                size="lg"
+                className="bg-white text-primary hover:bg-white/90"
+                asChild
+              >
+                <Link href="/contact">Join Our Team</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+                asChild
+              >
+                <Link href="/blog">Read Our Blog</Link>
+              </Button>
+            </div>
           </motion.div>
+        </div>
+        
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-white/20 rounded-full"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.2, 0.5, 0.2],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+      </section>
 
-          {/* Team Grid */}
+      {/* Team Grid */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
           <motion.div
-            variants={container}
+            variants={containerVariants}
             initial="hidden"
-            animate="show"
-            className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {team.map((member) => (
               <motion.div
                 key={member.name}
-                variants={item}
-                whileHover={{ scale: 1.02 }}
-                className="relative group"
+                variants={itemVariants}
+                className="group"
               >
-                <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
-                  <div className="p-8">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center gap-4">
-                        <div className="p-3 bg-primary/10 rounded-full">
-                          <member.icon className="w-8 h-8 text-primary" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold">{member.name}</h3>
-                          <p className="text-primary">{member.role}</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-2">
-                        {Object.entries(member.links).map(([platform, url]) => {
-                          const Icon = socialIcons[platform];
-                          return (
-                            <a
-                              key={platform}
-                              href={url}
-                              className="p-2 text-gray-400 hover:text-primary transition-colors"
-                              target={platform === 'email' ? '_self' : '_blank'}
-                              rel="noopener noreferrer"
-                            >
-                              <Icon className="w-5 h-5" />
-                            </a>
-                          );
-                        })}
-                      </div>
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <div className={`p-8 ${member.bgColor}`}>
+                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-white flex items-center justify-center shadow-lg">
+                      <member.icon className={`w-10 h-10 ${member.color}`} />
                     </div>
-                    <p className="text-gray-600 mb-4">
-                      {member.bio}
-                    </p>
-                    <div className="flex items-center gap-2 text-sm text-primary/80">
-                      <span className="font-medium">Fun fact:</span>
-                      <span>{member.funFact}</span>
+                    <h3 className="text-xl font-bold text-center mb-2">{member.name}</h3>
+                    <p className="text-gray-600 text-center mb-4">{member.role}</p>
+                    <p className="text-gray-600 text-sm mb-4">{member.description}</p>
+                    <div className="text-center">
+                      <p className="text-sm text-gray-500 italic mb-4">{member.funFact}</p>
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-primary hover:text-primary/80 transition-colors"
+                      >
+                        Connect on LinkedIn →
+                      </a>
                     </div>
                   </div>
-                  <div className="h-2 bg-gradient-to-r from-primary/20 via-primary to-primary/20 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                 </div>
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
 
-          {/* Values Section */}
+      {/* Fun Stats Section */}
+      <section className="py-20 bg-primary/5">
+        <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="mt-20 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
           >
-            <h2 className="text-3xl font-bold mb-12">Our Values</h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="p-6 bg-white rounded-lg shadow-sm border border-gray-100"
-              >
-                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-4">
-                  <LuBrain className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">Innovation First</h3>
-                <p className="text-gray-600">
-                  We're constantly pushing boundaries to create better solutions for restaurants.
-                </p>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="p-6 bg-white rounded-lg shadow-sm border border-gray-100"
-              >
-                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-4">
-                  <LuCode className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">Tech Excellence</h3>
-                <p className="text-gray-600">
-                  Building robust, reliable technology that restaurants can count on.
-                </p>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="p-6 bg-white rounded-lg shadow-sm border border-gray-100"
-              >
-                <div className="p-3 bg-primary/10 rounded-full w-fit mx-auto mb-4">
-                  <LuSettings2 className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold mb-2">Customer Success</h3>
-                <p className="text-gray-600">
-                  Your growth is our growth. We succeed when you succeed.
-                </p>
-              </motion.div>
+            <div className="p-6 bg-white rounded-xl shadow-lg">
+              <h3 className="text-3xl font-bold text-primary mb-2">10+</h3>
+              <p className="text-gray-600">Years Experience</p>
+            </div>
+            <div className="p-6 bg-white rounded-xl shadow-lg">
+              <h3 className="text-3xl font-bold text-primary mb-2">100+</h3>
+              <p className="text-gray-600">Restaurants Served</p>
+            </div>
+            <div className="p-6 bg-white rounded-xl shadow-lg">
+              <h3 className="text-3xl font-bold text-primary mb-2">24/7</h3>
+              <p className="text-gray-600">Support Available</p>
+            </div>
+            <div className="p-6 bg-white rounded-xl shadow-lg">
+              <h3 className="text-3xl font-bold text-primary mb-2">4</h3>
+              <p className="text-gray-600">Team Members</p>
             </div>
           </motion.div>
         </div>
-      </div>
-    </Layout>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="text-3xl font-bold mb-6">Want to Join Our Team?</h2>
+            <p className="text-gray-600 mb-8">
+              We're always looking for passionate individuals who want to make a difference in the food industry.
+            </p>
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90"
+              asChild
+            >
+              <Link href="/careers">View Open Positions</Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+    </div>
   );
 } 
