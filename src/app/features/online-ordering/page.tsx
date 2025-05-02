@@ -13,7 +13,7 @@ import {
   LuBell,
   LuSettings,
   LuUsers,
-  LuBarChart,
+  LuTrendingUp,
   LuShield,
   LuZap
 } from "react-icons/lu";
@@ -72,7 +72,7 @@ const benefits = [
   {
     title: "Customer Insights",
     description: "Track popular items, peak ordering times, and customer preferences.",
-    icon: LuBarChart,
+    icon: LuTrendingUp,
   },
   {
     title: "Loyalty Program",
