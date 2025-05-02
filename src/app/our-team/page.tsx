@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LuRocket, LuCode, LuCpu, LuSettings } from "react-icons/lu";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Layout } from "@/components/layout/Layout";
+import { LuRocket, LuCode, LuCpu, LuSettings, LuLinkedin } from "react-icons/lu";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const team = [
@@ -72,142 +71,101 @@ const itemVariants = {
 
 export default function TeamPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-primary text-white py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Meet the Team Behind Foodo
-            </h1>
-            <p className="text-xl text-white/90 mb-8">
-              We're a passionate team of food lovers and tech innovators working together to transform how Nigerian restaurants do business.
-            </p>
-            <div className="flex justify-center gap-4">
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:bg-white/90"
-                asChild
-              >
-                <Link href="/contact">Join Our Team</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10"
-                asChild
-              >
-                <Link href="/blog">Read Our Blog</Link>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-        
-        <AnimatedBackground />
-      </section>
+    <Layout>
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+        {/* Hero Section */}
+        <section className="relative overflow-hidden bg-primary text-white py-20">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-3xl mx-auto text-center"
+            >
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Meet the Team Behind Foodo
+              </h1>
+              <p className="text-xl text-white/90 mb-8">
+                We're a passionate team of food lovers and tech innovators working together to transform how Nigerian restaurants do business.
+              </p>
+            </motion.div>
+          </div>
+          <AnimatedBackground />
+        </section>
 
-      {/* Team Grid */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-          >
-            {team.map((member) => (
-              <motion.div
-                key={member.name}
-                variants={itemVariants}
-                className="group"
-              >
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <div className={`p-8 ${member.bgColor}`}>
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-white flex items-center justify-center shadow-lg">
-                      <member.icon className={`w-10 h-10 ${member.color}`} />
-                    </div>
-                    <h3 className="text-xl font-bold text-center mb-2">{member.name}</h3>
-                    <p className="text-gray-600 text-center mb-4">{member.role}</p>
-                    <p className="text-gray-600 text-sm mb-4">{member.description}</p>
-                    <div className="text-center">
-                      <p className="text-sm text-gray-500 italic mb-4">{member.funFact}</p>
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block text-primary hover:text-primary/80 transition-colors"
-                      >
-                        Connect on LinkedIn →
-                      </a>
+        {/* Team Grid */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              {team.map((member) => (
+                <motion.div
+                  key={member.name}
+                  variants={itemVariants}
+                  className="group"
+                >
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <div className={`p-8 ${member.bgColor}`}>
+                      <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-white flex items-center justify-center shadow-lg">
+                        <member.icon className={`w-10 h-10 ${member.color}`} />
+                      </div>
+                      <h3 className="text-xl font-bold text-center mb-2">{member.name}</h3>
+                      <p className="text-gray-600 text-center mb-4">{member.role}</p>
+                      <p className="text-gray-600 text-sm mb-4">{member.description}</p>
+                      <div className="text-center">
+                        <p className="text-sm text-gray-500 italic mb-4">{member.funFact}</p>
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block text-primary hover:text-primary/80 transition-colors"
+                        >
+                          Connect on LinkedIn →
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
 
-      {/* Fun Stats Section */}
-      <section className="py-20 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-          >
-            <div className="p-6 bg-white rounded-xl shadow-lg">
-              <h3 className="text-3xl font-bold text-primary mb-2">10+</h3>
-              <p className="text-gray-600">Years Experience</p>
-            </div>
-            <div className="p-6 bg-white rounded-xl shadow-lg">
-              <h3 className="text-3xl font-bold text-primary mb-2">100+</h3>
-              <p className="text-gray-600">Restaurants Served</p>
-            </div>
-            <div className="p-6 bg-white rounded-xl shadow-lg">
-              <h3 className="text-3xl font-bold text-primary mb-2">24/7</h3>
-              <p className="text-gray-600">Support Available</p>
-            </div>
-            <div className="p-6 bg-white rounded-xl shadow-lg">
-              <h3 className="text-3xl font-bold text-primary mb-2">4</h3>
-              <p className="text-gray-600">Team Members</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <h2 className="text-3xl font-bold mb-6">Want to Join Our Team?</h2>
-            <p className="text-gray-600 mb-8">
-              We're always looking for passionate individuals who want to make a difference in the food industry.
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90"
-              asChild
+        {/* Fun Stats Section */}
+        <section className="py-20 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
             >
-              <Link href="/careers">View Open Positions</Link>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+              <div className="p-6 bg-white rounded-xl shadow-lg">
+                <h3 className="text-3xl font-bold text-primary mb-2">10+</h3>
+                <p className="text-gray-600">Years Experience</p>
+              </div>
+              <div className="p-6 bg-white rounded-xl shadow-lg">
+                <h3 className="text-3xl font-bold text-primary mb-2">100+</h3>
+                <p className="text-gray-600">Restaurants Served</p>
+              </div>
+              <div className="p-6 bg-white rounded-xl shadow-lg">
+                <h3 className="text-3xl font-bold text-primary mb-2">24/7</h3>
+                <p className="text-gray-600">Support Available</p>
+              </div>
+              <div className="p-6 bg-white rounded-xl shadow-lg">
+                <h3 className="text-3xl font-bold text-primary mb-2">4</h3>
+                <p className="text-gray-600">Team Members</p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </div>
+    </Layout>
   );
 } 

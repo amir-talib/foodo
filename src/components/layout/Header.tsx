@@ -80,11 +80,11 @@ export function Header() {
             {/* Desktop Navigation */}
             <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-primary">
               Features
-            </Link>
+                      </Link>
 
             <Link href="/pricing" className="text-sm font-medium text-gray-600 hover:text-primary">
               Pricing
-            </Link>
+                      </Link>
 
             <div
               onMouseEnter={() => handleMouseEnter("resources")}
@@ -149,11 +149,11 @@ export function Header() {
               <div className="flex flex-col gap-6 mt-8">
                 <Link href="/features" className="text-lg font-medium hover:text-primary">
                   Features
-                </Link>
+                      </Link>
 
                 <Link href="/pricing" className="text-lg font-medium hover:text-primary">
                   Pricing
-                </Link>
+                      </Link>
 
                 <div className="space-y-3">
                   <h3 className="text-lg font-medium">Resources</h3>
@@ -177,14 +177,14 @@ export function Header() {
                   </a>
                 </div>
 
-                <Button
-                  className="w-full bg-primary hover:bg-primary/90"
-                  asChild
-                >
+                  <Button
+                    className="w-full bg-primary hover:bg-primary/90"
+                    asChild
+                  >
                   <Link href="/waitlist">
-                    Get Started
-                  </Link>
-                </Button>
+                      Get Started
+                    </Link>
+                  </Button>
               </div>
             </SheetContent>
           </Sheet>
