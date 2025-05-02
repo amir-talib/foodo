@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://foodo.ng/sitemap.xml 
