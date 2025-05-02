@@ -99,31 +99,18 @@ export default function WaitlistPage() {
       captchaToken: captchaToken
     };
 
-    console.log('Submitting data:', submitData);
-
     try {
-      // First, make a GET request to wake up the Apps Script
-      const wakeResponse = await fetch('https://script.google.com/macros/s/AKfycbyMfCccZPz3YI1Mzk6lplWLE1CjnYmqWhEbBgjt1_uVn2qOV70Jgz6YC1xrkNzyXDxQ9A/exec', {
-        method: 'GET',
-      });
-
-      if (!wakeResponse.ok) {
-        throw new Error('Failed to wake up the server');
-      }
-
-      // Then make the actual POST request
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyMfCccZPz3YI1Mzk6lplWLE1CjnYmqWhEbBgjt1_uVn2qOV70Jgz6YC1xrkNzyXDxQ9A/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwuQzKnGb2ZmALJG6An4Fu-B6D-ijCPK-DP6mlZt7AMPzNBzv0jnIDj4Jwu2NAt2apRuA/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(submitData),
+        body: JSON.stringify(submitData)
       });
-
-      console.log('Response received:', response);
       
-      // Since we're using no-cors, assume success if no error is thrown
+      // Since we're using no-cors, we can't read the response
+      // But we can check if the request was sent
       setIsSubmitted(true);
       
       // Reset form and captcha
