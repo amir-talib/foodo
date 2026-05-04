@@ -1,6 +1,6 @@
 # Foodo - Restaurant Technology Platform
 
-This project is a clone of [Tarro.com](https://www.tarro.com) with rebranding to "Foodo" and a customized color scheme.
+This project is a website / landing page for www.foodo.ng
 
 ## Features
 
