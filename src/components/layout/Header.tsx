@@ -121,9 +121,9 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="tel:+2349012345678" className="hidden md:flex items-center text-sm font-medium text-gray-600 hover:text-primary">
+          <a href="tel:09164924074" className="hidden md:flex items-center text-sm font-medium text-gray-600 hover:text-primary">
             <LuPhone className="mr-2 h-4 w-4" />
-            +234 901 234 5678
+            0916 492 4074
           </a>
 
           <Button
@@ -170,9 +170,9 @@ export function Header() {
                 </Link>
 
                 <div className="pt-4 border-t">
-                  <a href="tel:+2349012345678" className="flex items-center text-primary">
+                  <a href="tel:09164924074" className="flex items-center text-primary">
                     <LuPhone className="mr-2 h-4 w-4" />
-                    +234 901 234 5678
+                    0916 492 4074
                   </a>
                 </div>
 

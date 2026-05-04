@@ -125,7 +125,7 @@ export function Footer() {
               <a href="mailto:hello@foodo.ng" className="hover:text-white">hello@foodo.ng</a>
             </p>
             <p className="text-white/80 mb-4">
-              <a href="tel:+2349012345678" className="hover:text-white">+234 901 234 5678</a>
+              <a href="tel:09164924074" className="hover:text-white">0916 492 4074</a>
             </p>
 
             <Link

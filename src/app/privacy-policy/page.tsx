@@ -114,7 +114,7 @@ export default function PrivacyPolicyPage() {
                   </p>
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <p className="text-gray-600">Email: privacy@foodo.ng</p>
-                    <p className="text-gray-600">Phone: +234 901 234 5678</p>
+                    <p className="text-gray-600">Phone: 0916 492 4074</p>
                     <p className="text-gray-600">Address: Plot 123, Wuse Zone 5, Abuja, Nigeria</p>
                   </div>
                 </section>
