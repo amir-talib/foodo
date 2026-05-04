@@ -73,7 +73,6 @@ export function Header() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-bold text-primary">foodo</span>
-            <span className="ml-1 text-xs bg-secondary/20 text-secondary px-1.5 py-0.5 rounded-sm font-medium">BETA</span>
           </Link>
 
           <nav className="hidden md:flex ml-10 space-x-8">
@@ -132,8 +131,8 @@ export function Header() {
             className="hidden md:flex bg-primary hover:bg-primary/90"
             asChild
           >
-            <Link href="/waitlist">
-              Get Started
+            <Link href="/contact">
+              Partner With Us
             </Link>
           </Button>
 

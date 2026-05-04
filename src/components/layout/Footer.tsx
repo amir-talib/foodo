@@ -36,10 +36,9 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center mb-6">
               <span className="text-2xl font-bold">foodo</span>
-              <span className="ml-1 text-xs bg-white/20 text-white px-1.5 py-0.5 rounded-sm font-medium">BETA</span>
             </Link>
             <p className="text-sm text-white/80 mb-4">
-              Empowering Nigerian restaurants with digital tools to grow their business without relying on high-commission apps.
+              Partnering with Nigerian restaurants to drive sales, protect margins, and build loyal customer relationships.
             </p>
             <div className="flex space-x-4 mt-4">
               <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80">
@@ -133,7 +132,7 @@ export function Footer() {
               href="/waitlist"
               className="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary/90 inline-block mt-2"
             >
-              Get Started Free
+              Partner With Us
             </Link>
           </div>
         </div>

@@ -6,11 +6,11 @@ export function CtaSection() {
     <section className="py-24 bg-primary text-white">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Start growing your restaurant business today
+          Ready to see your sales climb?
         </h2>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-white/90">
-          Join other Abuja restaurants already using Foodo to increase orders, manage deliveries,
-          and build customer loyalty—all without high commission fees from Jumia or Glovo.
+          Join the restaurants already partnering with Foodo to take control of their growth,
+          protect their margins, and build a customer base they actually own.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
@@ -18,8 +18,8 @@ export function CtaSection() {
             className="bg-secondary hover:bg-secondary/90 text-white"
             asChild
           >
-            <Link href="/get-started">
-              Get Started Free
+            <Link href="/contact">
+              Partner With Us
             </Link>
           </Button>
           <Button
@@ -29,12 +29,12 @@ export function CtaSection() {
             asChild
           >
             <Link href="/demo">
-              Request Demo
+              Book a Free Strategy Call
             </Link>
           </Button>
         </div>
         <p className="mt-6 text-sm text-white/80">
-          No credit card required. Free 14-day trial for all features.
+          No commitment required. See how we can grow your sales in 30 days.
         </p>
       </div>
     </section>

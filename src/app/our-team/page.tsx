@@ -12,7 +12,7 @@ const team = [
     icon: LuRocket,
     color: "text-blue-500",
     bgColor: "bg-blue-100",
-    description: "Visionary leader with a passion for transforming the food industry. Amir brings 10+ years of experience in business strategy and digital innovation, driving Foodo's mission to empower Nigerian restaurants.",
+    description: "Visionary leader with a passion for transforming the food industry. Amir brings 5+ years of experience in business strategy and digital innovation, driving Foodo's mission to empower Nigerian restaurants.",
     funFact: "Can cook a mean jollof rice! 🍚",
     linkedin: "https://linkedin.com/in/amir-talib"
   },

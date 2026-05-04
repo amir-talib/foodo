@@ -64,10 +64,10 @@ export function TestimonialsSection() {
     <section className="py-20 bg-[#F8F5FB]">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-6">
-          Local restaurants love Foodo
+          Restaurants growing with Foodo
         </h2>
         <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          Here's what restaurant owners and managers in Abuja are saying about their experience with our platform.
+          Here's what our restaurant partners across Abuja are saying about working with Foodo.
         </p>
 
         <Carousel className="w-full">

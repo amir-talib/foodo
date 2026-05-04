@@ -11,15 +11,14 @@ export function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2 space-y-6">
             <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium mb-2">
-              Beta access available
+              Trusted by 15+ restaurants across Abuja
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Sell smarter. Deliver faster. Grow bigger—with Foodo.
+              We don't just build tools. We build your sales.
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-xl">
-              Empower your restaurant with affordable, easy-to-use digital tools to grow sales,{" "}
-              streamline delivery logistics, and automate customer marketing—all without relying{" "}
-              on high-commission apps like Jumia or Glovo.
+              Foodo partners hands-on with restaurants to grow orders, eliminate commission drain,{" "}
+              and turn one-time diners into loyal regulars. No tech skills required. Just results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button
@@ -27,8 +26,8 @@ export function HeroSection() {
                 className="bg-primary hover:bg-primary/90 text-white"
                 asChild
               >
-                <Link href="/waitlist">
-                  Join our Waitlist
+                <Link href="/contact">
+                  Partner With Us
                 </Link>
               </Button>
             </div>
